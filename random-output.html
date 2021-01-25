@@ -1,0 +1,41 @@
+<script type="text/javascript">
+  RED.nodes.registerType('random-output', {
+    category: 'function',
+    color: '#E2D96E',
+    defaults: {
+      name: { value: "" },
+      outputs: { value: 1, validate:RED.validators.number() },
+    },
+    inputs:1,
+    icon: "font-awesome/fa-random",
+    label: function() {
+      return this.name || "random-output"
+    }
+  })
+</script>
+
+<script type="text/html" data-template-name="random-output">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-outputs">Outputs</label>
+    <input type="number" id="node-input-outputs" placeholder="Maximum number of results" min="0">
+  </div>
+
+</script>
+
+<script type="text/html" data-help-name="random-output">
+  <p>Routes a received msg to a random output.</p>
+
+  <h3>Options</h3>
+  <dl class="message-properties">
+    <dt>Outputs
+      <span class="property-type">number</span>
+    </dt>
+    <dd>
+      Sets number of outputs
+    </dd>
+  </dl>
+</script>
