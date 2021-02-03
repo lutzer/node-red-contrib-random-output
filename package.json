@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-random-output",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node-red node that routes a received msg to a random output",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,9 @@
     "nodes": {
       "random-output": "random-output.js"
     }
-  }
+  },
+  "keywords": [
+    "node-red",
+    "random"
+  ]
 }
