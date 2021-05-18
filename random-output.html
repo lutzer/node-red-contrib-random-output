@@ -5,13 +5,51 @@
     defaults: {
       name: { value: "" },
       outputs: { value: 1, validate:RED.validators.number() },
+      weights: { value: [1]},
     },
     inputs:1,
     icon: "font-awesome/fa-random",
     label: function() {
       return this.name || "random-output"
-    }
+    },
+    oneditprepare: function () {
+      node = this;
+
+      function renderWeights() {
+        let numOutputs = Number($("#node-input-outputs").val()) || 1;
+        let weightsContainer = $("#weights-container");
+        weightsContainer.empty();
+        for (let weightNum = 0; weightNum < numOutputs; weightNum++) {
+          let weight = node.weights[weightNum];
+          if(isNaN(weight)){
+            weight = 1;
+          }
+          let weightInput = "<div class='form-row'";
+          weightInput += `<label for="node-input-weight-${weightNum}">Output ${weightNum} </label>`;
+          weightInput += `<input type="number" id="node-input-weight-${weightNum}" min="0" value="${weight}">`;
+          weightInput += "</div>";
+          weightsContainer.append(weightInput);
+        }
+      }
+
+      renderWeights();
+
+      $('#node-input-outputs').change(renderWeights);
+    },
+    oneditsave: function(){
+      let numOutputs = Number($("#node-input-outputs").val()) || 1;
+      for (let weightNum = 0; weightNum < numOutputs; weightNum++) {
+        let weight = $(`#node-input-weight-${weightNum}`).val();
+        if(isNaN(weight) || weight <0){
+            weight = 1;
+        }
+        node.weights[weightNum] = weight;
+        console.log(`setting weight[${weightNum}] to ${weight}`);
+      }
+    },
   })
+
+
 </script>
 
 <script type="text/html" data-template-name="random-output">
@@ -23,6 +61,8 @@
     <label for="node-input-outputs">Outputs</label>
     <input type="number" id="node-input-outputs" placeholder="Maximum number of results" min="0">
   </div>
+  <div class="form-row"><i class="fa fa-balance-scale"></i> Weights</div>
+  <div id="weights-container"></div>
 
 </script>
 
