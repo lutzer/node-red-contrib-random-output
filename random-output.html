@@ -24,7 +24,7 @@
           if(isNaN(weight)){
             weight = 1;
           }
-          let weightInput = "<div class='form-row'";
+          let weightInput = "<div class='form-row'>";
           weightInput += `<label for="node-input-weight-${weightNum}">Output ${weightNum} </label>`;
           weightInput += `<input type="number" id="node-input-weight-${weightNum}" min="0" value="${weight}">`;
           weightInput += "</div>";
@@ -67,7 +67,7 @@
 </script>
 
 <script type="text/html" data-help-name="random-output">
-  <p>Routes a received msg to a random output.</p>
+  <p>Routes a received msg to a random output. By default all outputs are equally likely but this can be adjusted by specifying weights.</p>
 
   <h3>Options</h3>
   <dl class="message-properties">
@@ -76,6 +76,12 @@
     </dt>
     <dd>
       Sets number of outputs
+    </dd>
+    <dt>Weights
+      <span class="property-type">number</span>
+    </dt>
+    <dd>
+      Sets the probablility weight for the corresponding output
     </dd>
   </dl>
 </script>
