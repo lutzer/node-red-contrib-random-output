@@ -10,6 +10,7 @@ module.exports = function(RED) {
         }
         node.weights.push(weight);
       }
+      node.weights = node.weights.slice(0, node.wires.length);
 
       node.on('input', function(msg) {
         const numberOfOutputs = node.wires.length
