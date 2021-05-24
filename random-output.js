@@ -2,6 +2,7 @@ module.exports = function(RED) {
   function RandomOutputNode(config) {
     RED.nodes.createNode(this, config)
       let node = this;
+
       node.weights = [];
       for(let weight of config.weights){
         weight = Number(weight);
@@ -10,10 +11,11 @@ module.exports = function(RED) {
         }
         node.weights.push(weight);
       }
-      node.weights = node.weights.slice(0, node.wires.length);
+
+      const numberOfOutputs = config.outputs
+      node.weights = config.useWeights ? node.weights.slice(0, numberOfOutputs) : Array(numberOfOutputs).fill(1);
 
       node.on('input', function(msg) {
-        const numberOfOutputs = node.wires.length
         let output = new Array(numberOfOutputs);
 
         let weightSum = node.weights.reduce((a, b) => a + b, 0);
