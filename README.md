@@ -1,6 +1,6 @@
 # node-red-contrib-pick-random
 
-Routes a received msg to a random output. Number of outputs can be set in the config dialog.
+Routes a received msg to a random output. Number of outputs can be set in the config dialog. Optionally, weights for each output can be defined in the configuration.
 
 ![image](docs/image.png)
 
