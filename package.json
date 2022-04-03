@@ -23,5 +23,8 @@
   "keywords": [
     "node-red",
     "random"
-  ]
+  ],
+  "dependencies": {
+    "node-red-contrib-random-output": "github:nstankov-bg/node-red-contrib-random-output"
+  }
 }
