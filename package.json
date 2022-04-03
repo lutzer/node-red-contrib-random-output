@@ -25,6 +25,6 @@
     "random"
   ],
   "dependencies": {
-    "node-red-contrib-random-output": "github:nstankov-bg/node-red-contrib-random-output"
+    "node-red-contrib-random-output-advanced": "github:nstankov-bg/node-red-contrib-random-output"
   }
 }
