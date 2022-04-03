@@ -2,6 +2,11 @@ module.exports = function(RED) {
   function RandomOutputNode(config) {
     RED.nodes.createNode(this, config)
       let node = this;
+      //Elect a single node for X time
+      let timeout = config.time;
+
+
+
 
       node.weights = [];
       for(let weight of config.weights){
@@ -30,6 +35,11 @@ module.exports = function(RED) {
         for(let outputNum = 0; outputNum < numberOfOutputs; outputNum++){
           weightAggregate += node.weights[outputNum];
           if(randVal < weightAggregate){
+            //Check if this node was elected in the last "timeout" seconds.
+            if(node.lastElected[outputNum] && (Date.now() - node.lastElected[outputNum]) < timeout){
+              //If so, skip this output and try again.
+              continue;
+            }
             chosen = outputNum;
             break;
           }
@@ -40,5 +50,5 @@ module.exports = function(RED) {
       });
   }
 
-  RED.nodes.registerType("random-output", RandomOutputNode)
+  RED.nodes.registerType("random-output-advanced", RandomOutputNode)
 }

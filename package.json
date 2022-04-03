@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lutzer/node-red-contrib-random-output.git"
+    "url": "git+https://github.com/nstankov-bg/node-red-contrib-random-output.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lutzer/node-red-contrib-random-output/issues"
+    "url": "https://github.com/nstankov-bg/node-red-contrib-random-output/issues"
   },
-  "homepage": "https://github.com/lutzer/node-red-contrib-random-output#readme",
+  "homepage": "https://github.com/nstankov-bg/node-red-contrib-random-output#readme",
   "node-red": {
     "nodes": {
       "random-output": "random-output.js"
