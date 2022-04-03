@@ -6,8 +6,8 @@ Routes a received msg to a random output. Number of outputs can be set in the co
 
 ## Installation
 
-* Search for `node-red-contrib-random-output` in node-reds Pallete Manager
-* or via cli: `cd ~/.node-red; npm install node-red-contrib-random-output`
+* Search for `node-red-contrib-random-output-advanced` in node-reds Pallete Manager
+* or via cli: `cd ~/.node-red; npm install nstankov-bg/node-red-contrib-random-output-advanced`
 
 ## Example flow
 
