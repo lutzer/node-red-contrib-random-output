@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-random-output",
+  "name": "node-red-contrib-random-output-advanced",
   "version": "0.1.1",
   "description": "Node-red node that routes a received msg to a random output",
   "scripts": {
